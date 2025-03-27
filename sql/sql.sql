@@ -3,18 +3,31 @@ create database my_website;
 use my_website;
 
 create table users (
-    id int auto_increment primary key,
-    username varchar(50) not null,
-    password varchar(50) not null);
+                       id int auto_increment primary key,
+                       username varchar(50) not null,
+                       password varchar(50) not null);
 
 insert into users values (1, 'admin', 'admin');
 insert into users values (2, 'zyq', '030701');
 
 create table navigators (
-    id int auto_increment primary key,
-    name varchar(50) not null,
-    url varchar(100) not null,
-    img varchar(10000) not null);
+                            id int auto_increment primary key,
+                            name varchar(50) not null,
+                            url varchar(100) not null,
+                            img varchar(10000) not null);
+CREATE TABLE todos (
+                       id INT AUTO_INCREMENT PRIMARY KEY,
+                       time BIGINT NOT NULL,  -- 或者使用 TIMESTAMP
+                       title VARCHAR(1000) NOT NULL,
+                       completed BOOLEAN NOT NULL
+);
+
+create table document(
+                    id int auto_increment primary key,
+                    create_time TIMESTAMP  not null,
+                    author varchar(50) not null,
+                    content text not null
+);
 
 # {
 #     "name": "github",
@@ -113,4 +126,3 @@ create table navigators (
 #   }
 
 # 把上面的json数据插入mysql的navigator数据库
-
